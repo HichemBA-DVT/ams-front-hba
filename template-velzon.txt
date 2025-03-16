@@ -1,0 +1,58 @@
+https://github.com/MezghichGit/projet_ams_2025
+
+https://github.com/MezghichGit/velson_template
+npm i
+code .
+ng s -o
+----------backend 
+
+D:\formation\spring\workingspace\ams_rest_hba\ams_rest_2025_security
+
+------------frontend 
+D:\formation\spring\ws\projet-formation   (template)
+
+D:\formation\spring\ws\ams_front     (ancien)
+
+
+class="form-group novform-firstname"     ********************************************* to try
+
+---------------- adding providers -------------
+1- ng g m pages/providers --routing
+2- update app.routing:
+--> {
+    path: 'providers', loadChildren: () => import('./pages/providers/providers.module').then(m => m.ProvidersModule)
+  },
+
+3- ng g c pages/providers/provider-list --module=providers
+
+4- ng g s services/authentication
+
+5- update signin component : adding the authenticationservice + username instaed of email + signIn method
+
+6- authentication request ---> replace email by username
+export interface AuthenticationRequest {
+    username: string;
+    password: string;
+  }
+
+7- logout :
+in the layout/sidebar component --->  update logout() by adding the authentificationService.logout call 
+-->logout(){
+      this.authenticationService.logOut();        ///******** logout Authservice */
+
+      this.router.navigate(['/auth/signin']);
+    }
+}
+  
+8- auth-guard added to the services  + update the app-routing by adding canActivate:[AuthGuardService]: 
+{
+    path: 'providers', loadChildren: () => import('./pages/providers/providers.module').then(m => m.ProvidersModule)
+                    ,canActivate:[AuthGuardService]
+  },
+
+********************************  seance 15-03 **************************************  DEVOPS ***********************
+
+https://www.docker.com/products/docker-desktop/
+
+
+

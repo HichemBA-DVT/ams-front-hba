@@ -1,0 +1,54 @@
+/* App-menu (Sidebar) */
+.app-menu {
+  position: fixed; /* Ensures the sidebar stays in place when scrolling */
+  top: 0;
+  left: 0;
+  width: 250px; /* Adjust based on the width of your sidebar */
+  height: 100vh; /* Make sure it takes the full height of the page */
+  background-color: #fff; /* Set background color for sidebar */
+  z-index: 999; /* Ensure it's below the navbar */
+}
+
+/* Main content area below the navbar */
+.main-content {
+  flex: 1;
+  margin-top: 60px; /* Space for the fixed header */
+  margin-left: 250px; /* Ensure content does not go under the sidebar */
+  padding: 15px;
+}
+
+/* Navbar header (Fixed at the top) */
+#page-topbar {
+  position: fixed;
+  top: 0;
+  left: 250px; /* Adjust this to match the sidebar's width */
+  right: 0;
+  background-color: #fff; /* Background color for the navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for the navbar */
+  height: 60px; /* Adjust this based on your header height */
+  z-index: 1000; /* Ensure it's above the sidebar */
+  width: calc(100% - 250px); /* Make it take the remaining width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px; /* Add some padding for spacing */
+}
+
+/* Ensure the profile dropdown and other navbar items are aligned properly */
+#page-topbar .d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Profile button and dropdown */
+#page-header-user-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+#page-header-user-dropdown img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}

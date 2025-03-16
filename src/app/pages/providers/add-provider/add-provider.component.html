@@ -1,0 +1,94 @@
+<div class="container">
+  <h2 class="my-4">Add Provider</h2>
+  <form #providerForm="ngForm" (ngSubmit)="onSubmit(providerForm)" enctype="multipart/form-data">
+  
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name">Provider Name:</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        class="form-control"
+        placeholder="Enter provider's name"
+        required
+        [(ngModel)]="providerForm.value.name" />
+      <div *ngIf="providerForm.submitted && providerForm.controls['name']?.invalid" class="invalid-feedback">
+        Name is required.
+      </div>
+    </div>
+
+    <!-- Address Field -->
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input
+        id="address"
+        name="address"
+        type="text"
+        class="form-control"
+        placeholder="Enter provider's address"
+        required
+        [(ngModel)]="providerForm.value.address" />
+      <div *ngIf="providerForm.submitted && providerForm.controls['address']?.invalid" class="invalid-feedback">
+        Address is required.
+      </div>
+    </div>
+  
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        class="form-control"
+        placeholder="Enter provider's email"
+        required
+        email
+        [(ngModel)]="providerForm.value.email" />
+      <div *ngIf="providerForm.submitted && providerForm.controls['email']?.invalid" class="invalid-feedback">
+        <span *ngIf="providerForm.controls['email']?.errors?.['required']">
+          Email is required.
+        </span>
+        <span *ngIf="providerForm.controls['email']?.errors?.['email']">
+          Enter a valid email.
+        </span>
+      </div>
+    </div>
+  
+    <!-- Phone Number Field -->
+    <div class="form-group">
+      <label for="phone_number">Phone Number:</label>
+      <input
+        id="phone_number"
+        name="phone_number"
+        type="text"
+        class="form-control"
+        placeholder="Enter provider's phone number"
+        required
+        [(ngModel)]="providerForm.value.phone_number" />
+      <div *ngIf="providerForm.submitted && providerForm.controls['phone_number']?.invalid" class="invalid-feedback">
+        Phone number is required.
+      </div>
+    </div>
+
+    <!-- Logo Upload -->
+    <div class="form-group">
+      <label for="logo">Provider Logo:</label>
+      <input
+        ngModel
+        name="logo"
+        class="form-control-file"
+        type="file"
+        (change)="onFileChanged($event)" />
+      <div *ngIf="providerForm.submitted && !providerForm.value.logo" class="invalid-feedback">
+        Provider logo is required.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="providerForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>
