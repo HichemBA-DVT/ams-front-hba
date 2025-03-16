@@ -39,8 +39,8 @@ export class AuthenticationService {
 
 
   logOut() {
-    sessionStorage.removeItem('username')
     sessionStorage.removeItem('jwtToken')
+    sessionStorage.removeItem('username')
     sessionStorage.removeItem('roles')
 
     this.isUserLoggedInSubject.next(false);

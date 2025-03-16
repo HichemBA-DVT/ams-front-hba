@@ -52,7 +52,7 @@ export class SidebarComponent implements OnInit {
 
 
     logout(){
-      this.authenticationService.logOut();        ///******** logout Authservice */
+      this.authenticationService.logOut();        ///******** logout Authservice --> to delete all the stored data in the session*/
 
       this.router.navigate(['/auth/signin']);
     }
